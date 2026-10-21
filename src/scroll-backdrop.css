@@ -1,0 +1,178 @@
+/* Neutral greige paper between two horizontal rollers. Decorative only. */
+:root {
+  --scroll-frame-top: 10px;
+  --scroll-header-top: 38px;
+  --scroll-main-top: 148px;
+  --scroll-frame-bottom: 12px;
+  --scroll-frame-inline: 18px;
+  --scroll-top-rod: 18px;
+  --scroll-bottom-rod: 23px;
+  --scroll-content-gap: 16px;
+}
+html, body { height: 100%; overflow: hidden; }
+body { background: #b8ada0; }
+#root { isolation: isolate; height: 100dvh; overflow: hidden; }
+#main {
+  position: fixed;
+  top: var(--scroll-main-top);
+  bottom: calc(var(--scroll-frame-bottom) + var(--scroll-bottom-rod) + var(--scroll-content-gap));
+  left: var(--scroll-frame-inline);
+  right: var(--scroll-frame-inline);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-padding-block: 16px;
+  padding: 0 0 24px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #a17c5c transparent;
+}
+.scroll-content { display: flow-root; }
+#main:focus-visible { outline: 1px solid #80634280; outline-offset: -2px; }
+#root:has(dialog:modal) #main { overflow-y: hidden; }
+.scroll-backdrop {
+  --scroll-progress: 0;
+  --scroll-open: 0;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  background: #b8ada0;
+  contain: strict;
+}
+.scroll-frame {
+  position: absolute;
+  top: var(--scroll-frame-top);
+  bottom: var(--scroll-frame-bottom);
+  left: var(--scroll-frame-inline);
+  right: var(--scroll-frame-inline);
+}
+.scroll-paper-window {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(calc((50% - 8px) * (1 - var(--scroll-open))) 0 round 2px);
+  box-shadow: 0 0 22px #514b4330;
+}
+.scroll-paper {
+  position: absolute;
+  inset: -40px 0;
+  transform: translateY(calc(var(--scroll-progress) * -28px));
+  background: linear-gradient(90deg, #bcb1a2 0%, #d1c8ba 4%, #e1dacf 19%, #e8e3da 50%, #e1dacf 81%, #d1c8ba 96%, #bcb1a2 100%);
+}
+.scroll-paper-grain {
+  position: absolute;
+  inset: -40px 0;
+  background: url("/media/scroll/terracotta-paper.jpg") center / cover no-repeat;
+  mix-blend-mode: multiply;
+  filter: saturate(0);
+  opacity: 0.19;
+  transform: translateY(calc(var(--scroll-progress) * -32px));
+}
+.scroll-paper-light {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, #625d5430, transparent 6%, transparent 94%, #625d5430),
+    radial-gradient(ellipse at 50% 30%, #fffdf835, transparent 75%);
+}
+.scroll-roller {
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #674832 0%, #a47b59 18%, #e5c5a0 40%, #c39b75 58%, #8c6248 82%, #583d30 100%);
+  box-shadow: 0 3px 7px #49423938, inset 0 0 0 1px #67472d55;
+}
+.scroll-roller::before,
+.scroll-roller::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 11px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #6d5037, #ccb18a 40%, #96774f 75%, #5e4431);
+  box-shadow: 0 1px 2px #49423940;
+}
+.scroll-roller::before { left: -4px; }
+.scroll-roller::after { right: -4px; }
+.scroll-roller i {
+  display: block;
+  position: absolute;
+  inset: 3px 10px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, transparent, #fff4dc70, transparent);
+}
+.scroll-roller-top {
+  top: calc((50% - 26px) * (1 - var(--scroll-open)));
+  height: var(--scroll-top-rod);
+}
+.scroll-roller-bottom {
+  bottom: calc((50% - 26px) * (1 - var(--scroll-open)));
+  height: var(--scroll-bottom-rod);
+}
+/* No content geometry changes during the opening sequence. Input stays live. */
+#root:has(> .scroll-backdrop[data-opening="true"]) #main {
+  opacity: var(--scroll-content-reveal, 0);
+  clip-path: inset(calc(50% * (1 - var(--scroll-content-open, 0))) 0);
+}
+.header {
+  position: fixed;
+  top: var(--scroll-header-top);
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  opacity: var(--scroll-header-reveal, 1);
+}
+/* Hidden navigation cannot receive pointer or keyboard input (also uses inert). */
+#root:has(> .scroll-backdrop[data-header-state="hidden"]) .header {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#root:has(> .scroll-backdrop[data-header-state="fading"]) .header {
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  :root {
+    --scroll-frame-top: 8px;
+    --scroll-header-top: 24px;
+    --scroll-main-top: 116px;
+    --scroll-frame-bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+    --scroll-frame-inline: 8px;
+    --scroll-top-rod: 8px;
+    --scroll-bottom-rod: 10px;
+    --scroll-content-gap: 12px;
+  }
+  .scroll-roller { left: 0; right: 0; border-radius: 4px; }
+  .scroll-roller::before, .scroll-roller::after { top: -2px; bottom: -2px; width: 5px; }
+  .scroll-roller::before { left: -2px; }
+  .scroll-roller::after { right: -2px; }
+  .scroll-paper-grain { opacity: 0.15; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-backdrop { --scroll-open: 1 !important; --scroll-progress: 0 !important; }
+  #root:has(> .scroll-backdrop[data-header-state]) .header {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .scroll-backdrop *, .scroll-backdrop *::before, .scroll-backdrop *::after {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  #root:has(> .scroll-backdrop[data-opening="true"]) #main { opacity: 1; clip-path: none; }
+}
+@media print {
+  .scroll-backdrop { display: none; }
+  html, body, #root { height: auto; overflow: visible; }
+  #main { position: static; overflow: visible; padding: 0; }
+  body, .header { background: white; }
+  #root:has(> .scroll-backdrop[data-opening="true"]) #main { opacity: 1; clip-path: none; }
+}

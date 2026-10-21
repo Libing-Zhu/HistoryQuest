@@ -1,0 +1,95 @@
+/* Decorative surfaces only. Ink, semantic feedback, maps and media stay original. */
+:root {
+  --museum-accent-surface: #652f2b;
+  --museum-accent-hover: #783a34;
+  --museum-accent-active: #512420;
+  --museum-accent-disabled: #87645f;
+  --museum-accent-translucent: rgb(101 47 43 / 93%);
+  --museum-accent-overlay: rgb(101 47 43 / 91%);
+  --museum-accent-on-surface: #f5f0e7;
+}
+.hero-visual {
+  background: var(--museum-accent-surface);
+  box-shadow:
+    inset 0 0 0 9px var(--museum-accent-surface),
+    inset 0 0 0 10px #c6a36b55;
+}
+.object-label { background: var(--museum-accent-translucent); }
+.curiosity-banner .eyebrow { color: #c8a56e; }
+.east-floor-tabs button.selected b { color: #e2c89c; }
+.curiosity-banner,
+.artifact-video,
+thead,
+.metrics > div,
+.toast,
+.detail-kicker > span:first-child {
+  background: var(--museum-accent-surface);
+}
+.btn.primary,
+.btn.gold-btn,
+.narration-actions .narration-play,
+.photo-toolbar button,
+.skip {
+  background: var(--museum-accent-surface);
+  border-color: var(--museum-accent-surface);
+  color: var(--museum-accent-on-surface);
+}
+/* The original brightness filter is replaced by the explicit hover/press palette. */
+.btn.primary,
+.btn.gold-btn { filter: none; }
+.round-arrow {
+  background: var(--museum-accent-surface);
+  color: var(--museum-accent-on-surface);
+}
+.photo-zoom,
+.community-photo span {
+  background: var(--museum-accent-overlay);
+  color: var(--museum-accent-on-surface);
+}
+.filters button.selected,
+.east-floor-tabs button.selected {
+  background: var(--museum-accent-surface);
+  border-color: var(--museum-accent-surface);
+  color: var(--museum-accent-on-surface);
+}
+.option[aria-pressed="true"] .option-indicator {
+  background: var(--museum-accent-surface);
+  border-color: var(--museum-accent-surface);
+}
+@media (hover: hover) and (pointer: fine) {
+  :is(.btn.primary, .btn.gold-btn, .narration-actions .narration-play, .photo-toolbar button, .skip):not(:disabled):hover,
+  .filters button.selected:not(:disabled):hover,
+  .east-floor-tabs button.selected:not(:disabled):hover {
+    background: var(--museum-accent-hover);
+    border-color: var(--museum-accent-hover);
+  }
+  .art-image:hover .round-arrow,
+  .chair-photo:hover .photo-zoom,
+  .community-photo:hover span {
+    background: var(--museum-accent-hover);
+  }
+}
+:is(.btn.primary, .btn.gold-btn, .narration-actions .narration-play, .photo-toolbar button, .skip):not(:disabled):active,
+.filters button.selected:not(:disabled):active,
+.east-floor-tabs button.selected:not(:disabled):active {
+  background: var(--museum-accent-active);
+  border-color: var(--museum-accent-active);
+}
+.art-image:active .round-arrow,
+.chair-photo:active .photo-zoom,
+.community-photo:active span {
+  background: var(--museum-accent-active);
+}
+:is(.btn.primary, .btn.gold-btn, .narration-actions .narration-play, .photo-toolbar button):disabled {
+  background: var(--museum-accent-disabled);
+  border-color: var(--museum-accent-disabled);
+}
+.community-publish-row .btn.primary:disabled {
+  background: var(--museum-accent-disabled);
+  border-color: var(--museum-accent-disabled);
+  color: var(--museum-accent-on-surface);
+}
+/* Preserve the existing print treatment of these report surfaces. */
+@media print {
+  .metrics > div { background: #eee; color: #14283f; }
+}

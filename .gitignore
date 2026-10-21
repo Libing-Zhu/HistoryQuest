@@ -1,0 +1,30 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.DS_Store
+video-work/
+*.tsbuildinfo
+
+work/
+audio-work/
+
+community-data/
+
+# Secrets and private visitor data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+
+# Generated previews and previous local-network QR codes
+previews/
+二维码与线上入口/
+__MACOSX/
+._*
+*.log

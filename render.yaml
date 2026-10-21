@@ -1,0 +1,22 @@
+# Creates a PAID service. Review provider pricing before applying.
+services:
+  - type: web
+    name: historyquest
+    runtime: node
+    plan: starter
+    region: singapore
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    startCommand: node 启动网页.cjs
+    healthCheckPath: /api/community/health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_VERSION
+        value: 24.11.0
+      - key: HISTORYQUEST_CLOUD
+        value: "1"
+      - key: HISTORYQUEST_DATA_DIR
+        value: /var/data/historyquest
+    disk:
+      name: historyquest-community
+      mountPath: /var/data
+      sizeGB: 1

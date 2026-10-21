@@ -1,0 +1,23 @@
+.map-object-preview {
+  position: fixed;
+  z-index: 90;
+  width: 210px;
+  max-width: calc(100vw - 48px);
+  padding: 10px;
+  box-sizing: border-box;
+  background: #f5f0e7;
+  border: 1px solid #ad8c58;
+  box-shadow: 0 5px 16px #33292230;
+  color: #14283f;
+  pointer-events: auto;
+}
+.map-preview-image {
+  height: 144px;
+  display: grid;
+  place-items: center;
+  background: #e8e3da;
+  font-size: 13px;
+}
+.map-preview-image img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.map-object-preview strong { display: block; margin-top: 7px; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+@media (hover: none), (pointer: coarse) { .map-object-preview { display: none; } }

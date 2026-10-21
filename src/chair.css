@@ -1,0 +1,225 @@
+/* Photographic colour stays true to the user's original; no saturation filters. */
+.chair-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #cbbb9f;
+  background: #eee9df;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+.chair-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+.photo-zoom {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #14283fe8;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+.hero-visual .hero-chair {
+  width: min(340px, 77%);
+  height: 445px;
+  z-index: 2;
+}
+.art-image img[src*="chair"] {
+  object-fit: contain !important;
+  object-position: center !important;
+  filter: none !important;
+}
+.artifact-portrait .detail-chair {
+  height: min(75vh, 720px);
+}
+.chair-reading {
+  max-width: 920px;
+  margin: 24px auto;
+}
+.chair-reading figure {
+  margin: 0 0 36px;
+}
+.chair-reading .hub-chair {
+  height: min(76vh, 740px);
+}
+.chair-reading figcaption,
+.story-photo figcaption {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #746951;
+  margin: 10px 0;
+}
+.chair-reading section {
+  margin: 30px 0;
+}
+.chair-reading h3,
+.source-note h3 {
+  font-family: "Songti SC", "Noto Serif SC", serif;
+  color: #14283f;
+  font-size: clamp(19px, 2.5vw, 24px);
+  line-height: 1.6;
+}
+.chair-reading p {
+  line-height: 1.95;
+}
+.chair-deeper {
+  border-block: 1px solid #cbbb9f;
+  padding: 20px 0;
+}
+.chair-deeper > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #14283f;
+  padding: 8px 0;
+  line-height: 1.8;
+}
+.observation-prompts {
+  background: #eee9df;
+  padding: 20px 26px;
+}
+.observation-prompts ol {
+  padding-left: 24px;
+}
+.observation-prompts li {
+  margin: 14px 0;
+  line-height: 1.85;
+}
+.reflection-prompt {
+  border-left: 3px solid #a38a5d;
+  padding: 4px 0 4px 24px;
+}
+.source-note {
+  border-top: 1px solid #cbbb9f;
+  padding-top: 24px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #746951;
+}
+.story-photo {
+  max-width: 480px;
+  margin: 30px auto;
+}
+.story-photo .chair-photo {
+  max-height: 620px;
+}
+.story-photo .chair-photo img {
+  max-height: 620px;
+}
+.photo-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1100px, 96vw);
+  max-width: 96vw;
+  height: 94dvh;
+  max-height: 94dvh;
+  padding: 16px;
+  border: 1px solid #a38a5d;
+  background: #faf8f2;
+  color: #14283f;
+  overflow: auto;
+}
+.photo-dialog::backdrop {
+  background: #08111de8;
+}
+.photo-toolbar {
+  position: sticky;
+  top: -16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  background: #faf8f2;
+  z-index: 3;
+}
+.photo-toolbar h2 {
+  font-size: 17px;
+  margin: 0;
+}
+.photo-toolbar button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  background: #14283f;
+  color: white;
+  min-height: 44px;
+  flex-shrink: 0;
+}
+.photo-scroll {
+  overflow: auto;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+.photo-scroll img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+}
+.photo-dialog p,
+.photo-dialog a {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.photo-dialog a {
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .hero-visual .hero-chair {
+    height: 340px;
+    width: 255px;
+    max-width: 77%;
+  }
+  .artifact-portrait .detail-chair {
+    height: 68vh;
+  }
+  .chair-reading .hub-chair {
+    height: 65vh;
+  }
+  .photo-dialog {
+    padding: 12px;
+    width: 96vw;
+  }
+  .photo-toolbar {
+    top: -12px;
+  }
+  .photo-toolbar h2 {
+    font-size: 15px;
+  }
+  .observation-prompts {
+    padding: 16px;
+  }
+}
+
+.puzzle .puzzle-heading .puzzle-title {
+  font: inherit;
+  color: inherit;
+  margin-left: 0;
+}
+.puzzle .puzzle-heading .puzzle-optional {
+  display: inline-block;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .puzzle .puzzle-heading {
+    max-width: 100%;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .puzzle .puzzle-heading .puzzle-optional {
+    display: block;
+    margin: 3px 0 0;
+  }
+}

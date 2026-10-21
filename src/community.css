@@ -1,0 +1,422 @@
+/* A compact visitor note, aligned with the museum's exhibition labels. */
+.page-head.community-head {
+  max-width: 900px;
+  margin-top: 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #cbbb9f;
+}
+.community-head h1 {
+  font-size: 36px;
+  margin-top: 7px;
+}
+.community-tagline {
+  font-size: 14px;
+  color: #746b5b;
+  line-height: 1.8;
+  margin-top: 7px;
+}
+.section.community-page {
+  max-width: 900px;
+  padding-top: 16px;
+  padding-bottom: 34px;
+}
+.community-tabs {
+  display: flex;
+  gap: 22px;
+  border-bottom: 1px solid #d7ccb9;
+  margin-bottom: 18px;
+}
+.community-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 3px;
+  border-bottom: 2px solid transparent;
+  color: #777060;
+  font-size: 14px;
+}
+.community-tabs button[aria-selected="true"] {
+  border-color: #967449;
+  color: #14283f;
+  font-weight: 600;
+}
+.community-page [hidden] {
+  display: none !important;
+}
+.community-composer {
+  padding: 28px 32px;
+  border: 1px solid #d1c1a6;
+  background: #fcfaf5;
+  box-shadow: 0 6px 24px #14283f04;
+  min-width: 0;
+}
+.community-card-heading {
+  margin-bottom: 22px;
+}
+.community-card-heading .eyebrow {
+  font-size: 9px;
+  color: #9b815d;
+  letter-spacing: 1.5px;
+}
+.community-card-heading h3 {
+  font-size: 25px;
+  line-height: 1.5;
+  margin: 6px 0 0;
+  color: #14283f;
+  font-weight: 500;
+}
+.community-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 19px;
+}
+.community-page label {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #4c5960;
+}
+.community-page input:not([type="file"]),
+.community-page select,
+.community-page textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid #d2c7b3;
+  background: #fffdf9;
+  color: #14283f;
+  border-radius: 0;
+  padding: 10px 12px;
+  margin-top: 6px;
+  font-size: 15px;
+  min-height: 46px;
+}
+.community-page input::placeholder,
+.community-page textarea::placeholder {
+  color: #96968b;
+}
+.community-page input:focus-visible,
+.community-page textarea:focus-visible,
+.community-page select:focus-visible {
+  outline: 2px solid #a48a5f;
+  outline-offset: 2px;
+  border-color: #a48a5f;
+}
+.community-page textarea {
+  resize: vertical;
+  min-height: 126px;
+  line-height: 1.8;
+}
+.community-compose-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #999080;
+  margin: 7px 0 19px;
+  flex-wrap: wrap;
+}
+.community-compose-meta small {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.community-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #c5b18f;
+  padding: 9px 13px;
+  min-height: 44px;
+  position: relative;
+  cursor: pointer;
+  background: #f1ece2;
+  color: #66553c;
+}
+.community-upload svg:nth-child(2) {
+  display: none;
+}
+.community-upload:hover {
+  background: #eae2d3;
+}
+.community-upload:focus-within {
+  outline: 2px solid #a48a5f;
+  outline-offset: 3px;
+}
+.community-upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.community-help {
+  color: #8b806e;
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 9px 0;
+}
+.community-formats {
+  display: block;
+  color: #9b9284;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.community-attachments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+.community-media-item {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  background: #f1ece2;
+  border: 1px solid #d5c8b1;
+}
+.community-media-item video,
+.community-photo {
+  width: 100%;
+  height: 205px;
+  background: #ece6db;
+  display: block;
+  object-fit: contain;
+}
+.community-photo {
+  cursor: zoom-in;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+.community-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.community-photo span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 5px 8px;
+  color: #fff;
+  background: #14283fe6;
+  font-size: 11px;
+}
+.community-media-item figcaption {
+  padding: 7px 10px;
+  overflow-wrap: anywhere;
+  color: #7d715f;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.community-media-item > p {
+  padding: 10px;
+  font-size: 12px;
+}
+.attachment-remove {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 8px 6px;
+  min-height: 36px;
+  font-size: 11px;
+  text-decoration: underline;
+}
+.community-text-preview {
+  margin: 16px 0;
+  padding: 8px 0;
+  border-block: 1px solid #e1d7c5;
+  font-size: 13px;
+}
+.community-text-preview summary {
+  cursor: pointer;
+  padding: 7px 0;
+  color: #52616b;
+}
+.community-text-preview b {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.community-text-preview small {
+  color: #8b806e;
+  font-size: 11px;
+}
+.visitor-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.9;
+  color: #384958;
+  font-size: 14px;
+  margin: 14px 0;
+}
+.community-publish-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e7decd;
+}
+.community-publish-row .btn {
+  flex-shrink: 0;
+  min-height: 46px;
+  padding: 12px 22px;
+  font-size: 13px;
+}
+.community-publish-row .btn:disabled {
+  background: #b1b9bc;
+  border-color: #b1b9bc;
+  color: #f8f8f4;
+  opacity: 1;
+  cursor: not-allowed;
+}
+.community-publish-row p {
+  max-width: 540px;
+  margin: 0;
+}
+.community-error {
+  padding: 11px 14px;
+  background: #f3e7dd;
+  color: #874333;
+  line-height: 1.8;
+  font-size: 12px;
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+.community-error button {
+  margin-left: 10px;
+  text-decoration: underline;
+  min-height: 36px;
+}
+.community-feedback {
+  font-size: 13px;
+  color: #536d62;
+  margin: 12px 0 0;
+  line-height: 1.8;
+}
+.community-feedback:empty {
+  display: none;
+}
+.craft-summary {
+  margin: 24px 0;
+  line-height: 1.95;
+}
+@media (max-width: 700px) {
+  .page-head.community-head,
+  .section.community-page {
+    width: calc(100% - 32px);
+  }
+  .page-head.community-head {
+    margin-top: 22px;
+    padding-bottom: 15px;
+    align-items: center;
+    gap: 12px;
+  }
+  .community-head h1 {
+    font-size: 30px;
+  }
+  .community-head .text-link {
+    font-size: 11px;
+  }
+  .community-tagline {
+    font-size: 12px;
+  }
+  .section.community-page {
+    padding-top: 12px;
+    padding-bottom: 34px;
+  }
+  .community-tabs {
+    gap: 22px;
+    margin-bottom: 14px;
+  }
+  .community-tabs button {
+    font-size: 13px;
+    min-height: 44px;
+  }
+  .community-composer {
+    padding: 21px 18px;
+  }
+  .community-card-heading {
+    margin-bottom: 19px;
+  }
+  .community-card-heading h3 {
+    font-size: 23px;
+  }
+  .community-form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 16px;
+  }
+  .community-page input:not([type="file"]),
+  .community-page select,
+  .community-page textarea {
+    font-size: 16px;
+  }
+  .community-page textarea {
+    min-height: 132px;
+  }
+  .community-publish-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 13px;
+    padding-top: 15px;
+    margin-top: 18px;
+  }
+  .community-publish-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .community-media-item video,
+  .community-photo {
+    height: 225px;
+  }
+}
+
+.shared-feed {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid #d1c1a6;
+}
+.shared-feed-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.shared-feed-heading h3 {
+  font-size: 24px;
+}
+.shared-post {
+  padding: 20px 0;
+  border-bottom: 1px solid #ded3c2;
+  min-width: 0;
+}
+.shared-post header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  font-size: 13px;
+}
+.shared-post time {
+  color: #817462;
+  font-size: 11px;
+}
+.shared-post header > span {
+  color: #806342;
+  font-size: 12px;
+}
+.shared-delete {
+  margin-top: 12px;
+  min-height: 44px;
+  font-size: 12px;
+}

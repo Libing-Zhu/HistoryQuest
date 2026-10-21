@@ -62,7 +62,15 @@ export function CommunityPage({ children }: { children: ReactNode }) {
         aria-labelledby="discussion-tab"
         hidden={tab !== "discussion"}
       >
-        <Community />
+        {import.meta.env.VITE_HOSTING === "github-pages" ? (
+          <div className="notice-box" role="status">
+            <div>
+              <h3>共享社区暂未开放</h3>
+              <p>此公开版本托管于 GitHub Pages，暂不支持共享发帖和照片、视频上传。你仍可使用“我的收藏与笔记”，记录和保存自己的探索发现。</p>
+              <p>收藏与笔记保存在当前浏览器中，不会自动同步到其他设备。</p>
+            </div>
+          </div>
+        ) : <Community />}
       </div>
       <div
         id="collections-panel"

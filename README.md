@@ -3,7 +3,8 @@
 上海历史博物馆课程项目：通过地图、文物故事、观察解谜、关联历史知识、语音导览和游客社区探索城市记忆。
 
 - 源码仓库：https://github.com/Libing-Zhu/HistoryQuest
-- **公开网站：尚未部署与验证。请勿将仓库地址当作网站入口。**
+- **公开网站：https://libing-zhu.github.io/HistoryQuest/**
+- 发布模式：免费 GitHub Pages；共享发帖与上传暂未开放，个人收藏与笔记仍保存在当前浏览器。
 
 ## 技术与入口
 
@@ -50,11 +51,13 @@ pnpm test:server
 
 ## GitHub Pages
 
-纯静态发布能显示内容，但无法提供共享发帖与上传。按项目所有者要求，当前保留全部功能，不发布一个社区失效的静态版本。待完整 HTTPS 网站验证后，可将 GitHub Pages 设置为跳转入口；课堂展示应使用验证过的完整网站地址。
+项目所有者已确认先发布免费静态版本。`.github/workflows/pages.yml` 在 `main` 更新时自动构建并部署 `dist/`，构建时设置 `VITE_HOSTING=github-pages`，页面会明确提示共享发帖与上传暂未开放，避免调用不存在的后台。个人收藏与笔记、地图、故事、视频与解谜保持可用。所有社区后台源码保留；将来在 Node 托管平台构建时不设置该变量即可启用完整社区。
+
+GitHub 仓库设置 → Pages → Source 应选择 GitHub Actions。相对资源路径及 hash 路由支持 `/HistoryQuest/` 子目录与页面刷新。
 
 ## 更新网站
 
-修改 `src/` 中内容、样式和交互，或更新 `public/media/` 中资源；运行构建及测试后提交并推送 `main`。GitHub Actions 自动验证；连接 Render 后，使用通过检查的提交自动部署。不要删除持久磁盘，否则社区帖子和上传可能丢失。部署后用无登录浏览器检查首页、故事、视频和社区。
+修改 `src/` 中内容、样式和交互，或更新 `public/media/` 中资源；运行构建及测试后提交并推送 `main`。GitHub Actions 自动验证，并部署免费 GitHub Pages 网站；连接 Render 后可另行部署完整后台版本。不要删除持久磁盘，否则社区帖子和上传可能丢失。部署后用无登录浏览器检查首页、故事、视频和社区。
 
 ## 内容与原始说明
 
